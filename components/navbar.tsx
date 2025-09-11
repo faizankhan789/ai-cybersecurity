@@ -49,13 +49,13 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <Link href="/" className="mr-6 flex items-center">
+        <Link href="/" className="mr-6 flex items-center -mt-2">
           <Image
             src="/logo.png"
             alt="AI & Cybersecurity Logo"
-            width={180}
-            height={180}
-            className="h-40 w-40 md:h-44 md:w-44 lg:h-48 lg:w-48 object-contain"
+            width={200}
+            height={200}
+            className="h-44 w-44 md:h-48 md:w-48 lg:h-52 lg:w-52 object-contain"
           />
         </Link>
 

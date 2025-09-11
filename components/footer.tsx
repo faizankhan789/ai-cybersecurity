@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -13,11 +15,14 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-4 mb-4">
               <Image
-                src="/logo.png"
+                src="/footerlogo.png"
                 alt="AI & Cybersecurity Logo"
-                width={60}
-                height={60}
-                className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
+                width={80}
+                height={80}
+                className="h-16 w-16 md:h-18 md:w-18 lg:h-20 lg:w-20 object-contain"
+                onError={(e) => {
+                  e.currentTarget.src = "/logo.png"
+                }}
               />
               <span className="font-bold text-white text-lg md:text-xl">AI & Cybersecurity</span>
             </div>

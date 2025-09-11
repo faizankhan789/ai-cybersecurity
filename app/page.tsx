@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Brain } from "lucide-react"
 import ValueProposition from "@/components/value-proposition"
 import IndustryUseCases from "@/components/industry-use-cases"
-import TrustIndicators from "@/components/trust-indicators"
 
 export default function Home() {
   return (
@@ -77,9 +76,6 @@ export default function Home() {
 
       {/* Industry Use Cases */}
       <IndustryUseCases />
-
-      {/* Trust Indicators */}
-      <TrustIndicators />
     </main>
   )
 }

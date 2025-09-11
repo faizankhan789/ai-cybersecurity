@@ -13,12 +13,12 @@ A modern Next.js website showcasing AI and cybersecurity solutions.
 
 1. Install dependencies:
    ```bash
-   pnpm install
+   npm install --legacy-peer-deps
    ```
    
-   Or with npm:
+   Or with pnpm:
    ```bash
-   npm install
+   pnpm install
    ```
 
 ### Development
@@ -26,17 +26,30 @@ A modern Next.js website showcasing AI and cybersecurity solutions.
 Run the development server:
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
-Or with npm:
+Or with pnpm:
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
+### Quick Start (Next Time)
+
+After initial setup, you only need:
+```bash
+npm run dev
+```
+
 ### Troubleshooting
+
+If you encounter dependency conflicts during installation:
+
+```bash
+npm install --legacy-peer-deps
+```
 
 If you encounter permission issues when running `npm run dev`:
 
@@ -45,11 +58,11 @@ chmod +x node_modules/.bin/next
 npm run dev
 ```
 
-Or reinstall dependencies:
+For a complete clean reinstall:
 
 ```bash
-rm -rf node_modules
-npm install
+rm -rf node_modules package-lock.json
+npm install --legacy-peer-deps
 npm run dev
 ```
 

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Twitter, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react"
@@ -10,9 +11,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="h-6 w-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
-              <span className="font-bold text-white">AI & Cybersecurity</span>
+            <div className="flex items-center space-x-4 mb-4">
+              <Image
+                src="/logo.png"
+                alt="AI & Cybersecurity Logo"
+                width={60}
+                height={60}
+                className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
+              />
+              <span className="font-bold text-white text-lg md:text-xl">AI & Cybersecurity</span>
             </div>
             <p className="mb-4">
               Empowering businesses with integrated AI and cybersecurity solutions for a secure digital future.

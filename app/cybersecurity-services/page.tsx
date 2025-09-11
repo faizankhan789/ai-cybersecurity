@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Shield, Lock, FileCheck, AlertTriangle, ChevronRight } from "lucide-react"
+import { ArrowRight, Shield, Globe, Smartphone, Zap, Settings, Search, ChevronRight } from "lucide-react"
 import SecurityMetrics from "@/components/security-metrics"
 
 export default function CybersecurityServicesPage() {
@@ -14,11 +14,10 @@ export default function CybersecurityServicesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-mono mb-6">
-                Enterprise-Grade Cybersecurity Solutions
+                Professional Penetration Testing Services
               </h1>
               <p className="text-xl mb-8 max-w-lg">
-                Protect your digital assets with comprehensive security solutions including threat detection, network
-                security, compliance, and incident response.
+                Comprehensive security testing for web applications, mobile apps, APIs, and network infrastructure. OWASP-compliant methodologies with detailed vulnerability reports.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" variant="destructive" className="group">
@@ -33,7 +32,7 @@ export default function CybersecurityServicesPage() {
                   variant="outline"
                   className="bg-transparent border-white text-white hover:bg-white/10"
                 >
-                  <Link href="/contact">Request Security Assessment</Link>
+                  <Link href="/contact">Request Penetration Test</Link>
                 </Button>
               </div>
             </div>
@@ -89,26 +88,97 @@ export default function CybersecurityServicesPage() {
       <section id="services" className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Cybersecurity Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Penetration Testing Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive security solutions to protect your organization from evolving cyber threats.
+              Professional security testing services to identify vulnerabilities before attackers exploit them.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Network Security Card */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+            {/* Web Application Penetration Testing Card */}
             <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-red-500">
               <CardHeader>
                 <div className="mb-4 p-3 bg-red-100 rounded-full w-fit">
-                  <Lock className="h-6 w-6 text-red-600" />
+                  <Globe className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle className="text-xl">Network Security</CardTitle>
-                <CardDescription>Fortify your digital perimeter</CardDescription>
+                <CardTitle className="text-xl">Web Application Testing</CardTitle>
+                <CardDescription>OWASP Top 10 compliant testing</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Protect your network infrastructure with advanced firewall setups, zero-trust architecture, and
-                  intrusion prevention systems.
+                  Comprehensive security testing for web applications including SQL injection, XSS, authentication bypass, and business logic flaws using Burp Suite and OWASP ZAP.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="ghost" className="group w-full justify-between">
+                  <Link href="/cybersecurity-services/web-application-pentest">
+                    Learn More
+                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Mobile Application Testing Card */}
+            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-blue-500">
+              <CardHeader>
+                <div className="mb-4 p-3 bg-blue-100 rounded-full w-fit">
+                  <Smartphone className="h-6 w-6 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl">Mobile App Security Testing</CardTitle>
+                <CardDescription>Android & iOS application testing</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Static and dynamic analysis of mobile applications using MobSF, Frida, Drozer, and JADX. OWASP Mobile Top 10 testing for both platforms.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="ghost" className="group w-full justify-between">
+                  <Link href="/cybersecurity-services/mobile-application-pentest">
+                    Learn More
+                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* API Penetration Testing Card */}
+            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-purple-500">
+              <CardHeader>
+                <div className="mb-4 p-3 bg-purple-100 rounded-full w-fit">
+                  <Zap className="h-6 w-6 text-purple-600" />
+                </div>
+                <CardTitle className="text-xl">API Penetration Testing</CardTitle>
+                <CardDescription>REST, GraphQL & SOAP testing</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Comprehensive API security testing covering OWASP API Top 10, authentication bypass, BOLA/IDOR, and business logic flaws.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="ghost" className="group w-full justify-between">
+                  <Link href="/cybersecurity-services/api-penetration-testing">
+                    Learn More
+                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Network & Infrastructure Testing Card */}
+            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-green-500">
+              <CardHeader>
+                <div className="mb-4 p-3 bg-green-100 rounded-full w-fit">
+                  <Settings className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle className="text-xl">Network & Infrastructure Testing</CardTitle>
+                <CardDescription>Network security assessment</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Network penetration testing, wireless security assessment, and infrastructure vulnerability analysis using Nmap, Metasploit, and Nessus.
                 </p>
               </CardContent>
               <CardFooter>
@@ -121,19 +191,18 @@ export default function CybersecurityServicesPage() {
               </CardFooter>
             </Card>
 
-            {/* Threat Intelligence Card */}
+            {/* Vulnerability Assessment Card */}
             <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-orange-500">
               <CardHeader>
                 <div className="mb-4 p-3 bg-orange-100 rounded-full w-fit">
-                  <AlertTriangle className="h-6 w-6 text-orange-600" />
+                  <Search className="h-6 w-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-xl">Threat Intelligence</CardTitle>
-                <CardDescription>Stay ahead of cybercriminals</CardDescription>
+                <CardTitle className="text-xl">Vulnerability Assessment</CardTitle>
+                <CardDescription>Comprehensive vulnerability scanning</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Proactive threat hunting, penetration testing, and vulnerability management to identify and mitigate
-                  risks before they're exploited.
+                  Automated and manual vulnerability assessment using Nessus, OpenVAS, Acunetix, and Netsparker with detailed remediation guidance.
                 </p>
               </CardContent>
               <CardFooter>
@@ -146,49 +215,23 @@ export default function CybersecurityServicesPage() {
               </CardFooter>
             </Card>
 
-            {/* Compliance Card */}
-            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-green-500">
+            {/* Configuration Review Card */}
+            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-gray-500">
               <CardHeader>
-                <div className="mb-4 p-3 bg-green-100 rounded-full w-fit">
-                  <FileCheck className="h-6 w-6 text-green-600" />
+                <div className="mb-4 p-3 bg-gray-100 rounded-full w-fit">
+                  <Shield className="h-6 w-6 text-gray-600" />
                 </div>
-                <CardTitle className="text-xl">Compliance</CardTitle>
-                <CardDescription>Audit-proof your business</CardDescription>
+                <CardTitle className="text-xl">Configuration Review</CardTitle>
+                <CardDescription>Security configuration analysis</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Simplify GDPR, HIPAA, and ISO 27001 compliance with our expert guidance and comprehensive compliance
-                  solutions.
+                  Security configuration review for firewalls, routers, switches, and workstations (Windows & Linux) with compliance gap analysis.
                 </p>
               </CardContent>
               <CardFooter>
                 <Button asChild variant="ghost" className="group w-full justify-between">
                   <Link href="/cybersecurity-services/compliance">
-                    Learn More
-                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-
-            {/* Incident Response Card */}
-            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-red-700">
-              <CardHeader>
-                <div className="mb-4 p-3 bg-red-100 rounded-full w-fit">
-                  <Shield className="h-6 w-6 text-red-700" />
-                </div>
-                <CardTitle className="text-xl">Incident Response</CardTitle>
-                <CardDescription>When every second counts</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Rapid breach containment, forensic analysis, and recovery services to minimize damage and restore
-                  operations.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button asChild variant="ghost" className="group w-full justify-between">
-                  <Link href="/cybersecurity-services/incident-response">
                     Learn More
                     <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -334,23 +377,39 @@ export default function CybersecurityServicesPage() {
         </div>
       </section>
 
-      {/* Certifications */}
+      {/* Tools & Technologies */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Certifications</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Security Tools</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our team holds industry-leading certifications to ensure the highest standards of security expertise.
+              Industry-leading tools and technologies used in our penetration testing methodology.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {["CISSP", "CEH", "OSCP", "CISM", "CompTIA Security+", "ISO 27001 Lead Auditor"].map((cert, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center mb-4">
-                  <Shield className="h-12 w-12 text-red-600" />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Burp Suite", category: "Web Security" },
+              { name: "OWASP ZAP", category: "Web Testing" },
+              { name: "Nessus", category: "Vulnerability Scanner" },
+              { name: "Metasploit", category: "Penetration Testing" },
+              { name: "Nmap", category: "Network Discovery" },
+              { name: "SQLMap", category: "SQL Injection" },
+              { name: "MobSF", category: "Mobile Security" },
+              { name: "Frida", category: "Dynamic Analysis" },
+              { name: "Drozer", category: "Android Testing" },
+              { name: "JADX", category: "Android Decompiler" },
+              { name: "WireShark", category: "Traffic Analysis" },
+              { name: "BeEF", category: "Browser Exploitation" }
+            ].map((tool, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3">
+                    <Shield className="h-8 w-8 text-red-600" />
+                  </div>
+                  <span className="font-bold text-sm mb-1">{tool.name}</span>
+                  <span className="text-xs text-gray-500">{tool.category}</span>
                 </div>
-                <span className="font-bold text-center">{cert}</span>
               </div>
             ))}
           </div>
@@ -360,15 +419,14 @@ export default function CybersecurityServicesPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#1A1A1A] to-[#3A0000] text-white">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Secure Your Digital Assets?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Test Your Security?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Schedule a free security assessment with our experts to identify vulnerabilities and strengthen your
-            security posture.
+            Get professional penetration testing services to identify vulnerabilities before attackers exploit them. OWASP-compliant methodology with detailed vulnerability reports and remediation guidance.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" variant="destructive" className="group">
               <Link href="/contact">
-                Request Free Security Assessment
+                Request Penetration Test Quote
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -378,7 +436,7 @@ export default function CybersecurityServicesPage() {
               variant="outline"
               className="bg-transparent border-white text-white hover:bg-white/10"
             >
-              <Link href="/resources">Explore Security Resources</Link>
+              <Link href="/resources">Security Testing Resources</Link>
             </Button>
           </div>
         </div>

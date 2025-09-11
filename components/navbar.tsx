@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Menu, X, ChevronDown, Brain, Shield, Zap } from "lucide-react"
@@ -15,6 +16,9 @@ const navItems = [
       { label: "Machine Learning", href: "/ai-solutions/machine-learning" },
       { label: "Computer Vision", href: "/ai-solutions/computer-vision" },
       { label: "NLP & Chatbots", href: "/ai-solutions/nlp-chatbots" },
+      { label: "Generative AI", href: "/ai-solutions/generative-ai" },
+      { label: "RAG Systems", href: "/ai-solutions/rag" },
+      { label: "Large Language Models", href: "/ai-solutions/llm" },
       { label: "AI Consulting", href: "/ai-solutions/consulting" },
     ],
   },
@@ -23,10 +27,12 @@ const navItems = [
     href: "/cybersecurity-services",
     icon: <Shield className="h-4 w-4 mr-2" />,
     submenu: [
-      { label: "Network Security", href: "/cybersecurity-services/network-security" },
-      { label: "Threat Intelligence", href: "/cybersecurity-services/threat-intelligence" },
-      { label: "Compliance", href: "/cybersecurity-services/compliance" },
-      { label: "Incident Response", href: "/cybersecurity-services/incident-response" },
+      { label: "Web App Penetration Testing", href: "/cybersecurity-services/web-application-pentest" },
+      { label: "Mobile App Security Testing", href: "/cybersecurity-services/mobile-application-pentest" },
+      { label: "API Penetration Testing", href: "/cybersecurity-services/api-penetration-testing" },
+      { label: "Network & Infrastructure Testing", href: "/cybersecurity-services/network-security" },
+      { label: "Vulnerability Assessment", href: "/cybersecurity-services/threat-intelligence" },
+      { label: "Compliance & Configuration Review", href: "/cybersecurity-services/compliance" },
     ],
   },
   {
@@ -35,8 +41,6 @@ const navItems = [
     icon: <Zap className="h-4 w-4 mr-2" />,
   },
   { label: "Resources", href: "/resources" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
 ]
 
 export default function Navbar() {
@@ -45,9 +49,14 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
-          <div className="h-6 w-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
-          <span className="hidden font-bold sm:inline-block">AI & Cybersecurity</span>
+        <Link href="/" className="mr-6 flex items-center">
+          <Image
+            src="/logo.png"
+            alt="AI & Cybersecurity Logo"
+            width={180}
+            height={180}
+            className="h-40 w-40 md:h-44 md:w-44 lg:h-48 lg:w-48 object-contain"
+          />
         </Link>
 
         {/* Desktop Navigation */}

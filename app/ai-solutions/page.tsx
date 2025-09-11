@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Brain, Eye, MessageSquare, Lightbulb, ChevronRight } from "lucide-react"
+import { ArrowRight, Brain, Eye, MessageSquare, Lightbulb, ChevronRight, Sparkles, Database, Cpu } from "lucide-react"
 import TechStackShowcase from "@/components/tech-stack-showcase"
 import PageTransition from "@/components/page-transition"
 
@@ -70,7 +70,7 @@ export default function AISolutionsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {/* Machine Learning Card */}
             <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-blue-500">
               <CardHeader>
@@ -145,11 +145,83 @@ export default function AISolutionsPage() {
               </CardFooter>
             </Card>
 
-            {/* AI Consulting Card */}
+            {/* Generative AI Card */}
             <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-purple-500">
               <CardHeader>
                 <div className="mb-4 p-3 bg-purple-100 rounded-full w-fit">
-                  <Lightbulb className="h-6 w-6 text-purple-600" />
+                  <Sparkles className="h-6 w-6 text-purple-600" />
+                </div>
+                <CardTitle className="text-xl">Generative AI</CardTitle>
+                <CardDescription>Creative content generation</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Generate high-quality text, images, code, and creative content using state-of-the-art generative models.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="ghost" className="group w-full justify-between">
+                  <Link href="/ai-solutions/generative-ai">
+                    Learn More
+                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* RAG Systems Card */}
+            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-emerald-500">
+              <CardHeader>
+                <div className="mb-4 p-3 bg-emerald-100 rounded-full w-fit">
+                  <Database className="h-6 w-6 text-emerald-600" />
+                </div>
+                <CardTitle className="text-xl">RAG Systems</CardTitle>
+                <CardDescription>Intelligent knowledge retrieval</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Combine retrieval and generation for accurate, contextual AI responses from your knowledge base.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="ghost" className="group w-full justify-between">
+                  <Link href="/ai-solutions/rag">
+                    Learn More
+                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Large Language Models Card */}
+            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-orange-500">
+              <CardHeader>
+                <div className="mb-4 p-3 bg-orange-100 rounded-full w-fit">
+                  <Cpu className="h-6 w-6 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl">Large Language Models</CardTitle>
+                <CardDescription>Advanced language understanding</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Deploy and customize state-of-the-art LLMs for your specific use cases and requirements.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="ghost" className="group w-full justify-between">
+                  <Link href="/ai-solutions/llm">
+                    Learn More
+                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* AI Consulting Card */}
+            <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-gray-500">
+              <CardHeader>
+                <div className="mb-4 p-3 bg-gray-100 rounded-full w-fit">
+                  <Lightbulb className="h-6 w-6 text-gray-600" />
                 </div>
                 <CardTitle className="text-xl">AI Consulting</CardTitle>
                 <CardDescription>End-to-end strategy support</CardDescription>

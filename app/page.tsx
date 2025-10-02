@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, Brain } from "lucide-react"
+import { ArrowRight, Shield, Brain, Cpu, Database, Zap, Activity, Network, Eye, MessageSquare, Lock, AlertTriangle, Wifi, Server, Key } from "lucide-react"
 import ValueProposition from "@/components/value-proposition"
 import IndustryUseCases from "@/components/industry-use-cases"
 
@@ -10,13 +10,17 @@ export default function Home() {
       {/* Hero Section with Split Layout */}
       <section className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
         {/* AI Solutions Side */}
-        <div className="bg-gradient-to-br from-[#00F3FF] to-[#2A2A72] text-white p-8 md:p-12 flex flex-col justify-center items-start animate-slideInLeft">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-orbitron opacity-0 animate-fadeInUp">AI-Driven Solutions</h2>
-          <p className="text-lg md:text-xl mb-6 max-w-md opacity-0 animate-fadeInUp animation-delay-150">
+        <div className="bg-gradient-to-br from-[#00F3FF] to-[#2A2A72] text-white p-8 md:p-12 flex flex-col justify-center items-start animate-slideInLeft relative overflow-hidden homepage-ai-block">
+          {/* Animated Background Overlay */}
+          <div className="ai-background-overlay"></div>
+          
+
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-orbitron opacity-0 animate-fadeInUp relative z-10">AI-Driven Solutions</h2>
+          <p className="text-lg md:text-xl mb-6 max-w-md opacity-0 animate-fadeInUp animation-delay-150 relative z-10">
             Harness the power of artificial intelligence to transform your business with cutting-edge machine learning,
             computer vision, and NLP solutions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fadeInUp animation-delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fadeInUp animation-delay-300 relative z-10">
             <Button asChild variant="secondary" className="group hover-scale">
               <Link href="/ai-solutions">
                 Explore AI Solutions
@@ -24,32 +28,25 @@ export default function Home() {
               </Link>
             </Button>
           </div>
-          <div className="mt-12 relative">
-            <div className="absolute -top-16 -left-8 w-32 h-32 bg-blue-500/20 rounded-full blur-xl"></div>
-            <div className="absolute top-8 -right-8 w-24 h-24 bg-teal-500/20 rounded-full blur-xl"></div>
-            <Brain className="h-24 w-24 text-white/80" />
-          </div>
         </div>
 
         {/* Cybersecurity Side */}
-        <div className="bg-gradient-to-br from-[#1A1A1A] to-[#3A0000] text-white p-8 md:p-12 flex flex-col justify-center items-start animate-slideInRight">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-mono opacity-0 animate-fadeInUp animation-delay-150">Cybersecurity Services</h2>
-          <p className="text-lg md:text-xl mb-6 max-w-md opacity-0 animate-fadeInUp animation-delay-300">
+        <div className="bg-gradient-to-br from-[#1A1A1A] to-[#3A0000] text-white p-8 md:p-12 flex flex-col justify-center items-start animate-slideInRight relative overflow-hidden homepage-cybersecurity-block">
+          {/* Animated Background Overlay */}
+          <div className="cyber-background-overlay"></div>
+
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-mono opacity-0 animate-fadeInUp animation-delay-150 relative z-10">Cybersecurity Services</h2>
+          <p className="text-lg md:text-xl mb-6 max-w-md opacity-0 animate-fadeInUp animation-delay-300 relative z-10">
             Protect your digital assets with comprehensive security solutions including threat detection, network
             security, and incident response.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fadeInUp animation-delay-450">
+          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fadeInUp animation-delay-450 relative z-10">
             <Button asChild variant="destructive" className="group hover-scale">
               <Link href="/cybersecurity-services">
                 Explore Security Services
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-          </div>
-          <div className="mt-12 relative">
-            <div className="absolute -top-16 -left-8 w-32 h-32 bg-red-500/20 rounded-full blur-xl"></div>
-            <div className="absolute top-8 -right-8 w-24 h-24 bg-orange-500/20 rounded-full blur-xl"></div>
-            <Shield className="h-24 w-24 text-white/80" />
           </div>
         </div>
       </section>

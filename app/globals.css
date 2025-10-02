@@ -135,6 +135,310 @@ html {
   animation-delay: 450ms;
 }
 
+/* Advanced AI & Cybersecurity Animations */
+@keyframes matrixRain {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+}
+
+@keyframes neuralPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes dataFlow {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+  }
+  50% {
+    transform: translateX(0) scaleX(1);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0);
+  }
+}
+
+@keyframes securityScan {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+@keyframes threatDetect {
+  0%, 100% {
+    transform: translateY(0);
+    color: #10b981;
+  }
+  25% {
+    transform: translateY(-3px);
+    color: #f59e0b;
+  }
+  50% {
+    transform: translateY(0);
+    color: #ef4444;
+  }
+  75% {
+    transform: translateY(-3px);
+    color: #f59e0b;
+  }
+}
+
+@keyframes binaryCode {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  25% {
+    opacity: 0.7;
+    transform: translateY(-5px) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1.1);
+  }
+  75% {
+    opacity: 0.7;
+    transform: translateY(5px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+}
+
+@keyframes codeFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+@keyframes virusAlert {
+  0%, 100% {
+    color: #10b981;
+    text-shadow: 0 0 5px #10b981;
+  }
+  33% {
+    color: #f59e0b;
+    text-shadow: 0 0 10px #f59e0b;
+  }
+  66% {
+    color: #ef4444;
+    text-shadow: 0 0 15px #ef4444;
+  }
+}
+
+@keyframes firewallGrid {
+  0% {
+    border-color: rgba(239, 68, 68, 0.2);
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.1);
+  }
+  50% {
+    border-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+  }
+  100% {
+    border-color: rgba(239, 68, 68, 0.2);
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.1);
+  }
+}
+
+@keyframes aiProcessing {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes quantumEffect {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+  25% {
+    transform: scale(1.05) rotate(90deg);
+    filter: blur(1px);
+  }
+  50% {
+    transform: scale(0.95) rotate(180deg);
+    filter: blur(0px);
+  }
+  75% {
+    transform: scale(1.05) rotate(270deg);
+    filter: blur(1px);
+  }
+}
+
+/* Disable ALL infinite animations by default */
+.animate-spin {
+  animation: none !important;
+}
+
+.animate-ping {
+  animation: none !important;
+}
+
+.animate-pulse {
+  animation: none !important;
+}
+
+.animate-bounce {
+  animation: none !important;
+}
+
+.animate-matrixRain {
+  animation: none;
+}
+
+.animate-neuralPulse {
+  animation: none;
+}
+
+.animate-dataFlow {
+  animation: none;
+}
+
+.animate-securityScan {
+  animation: none;
+}
+
+.animate-threatDetect {
+  animation: none;
+}
+
+.animate-binaryCode {
+  animation: none;
+}
+
+.animate-firewallGrid {
+  animation: none;
+}
+
+.animate-aiProcessing {
+  background: linear-gradient(-45deg, #00F3FF, #2A2A72, #00F3FF, #4F46E5);
+  background-size: 400% 400%;
+  animation: none;
+}
+
+.animate-quantumEffect {
+  animation: none;
+}
+
+/* Animations disabled for homepage AI and cybersecurity blocks */
+.homepage-ai-block .animate-spin {
+  animation: none !important;
+}
+
+.homepage-ai-block .animate-pulse {
+  animation: none !important;
+}
+
+.homepage-ai-block .animate-ping {
+  animation: none !important;
+}
+
+.homepage-ai-block .animate-bounce {
+  animation: none !important;
+}
+
+.homepage-ai-block .animate-matrixRain {
+  animation: none;
+}
+
+.homepage-ai-block .animate-neuralPulse {
+  animation: none;
+}
+
+.homepage-ai-block .animate-dataFlow {
+  animation: none;
+}
+
+.homepage-ai-block .animate-binaryCode {
+  animation: none;
+}
+
+.homepage-ai-block .animate-quantumEffect {
+  animation: none;
+}
+
+.homepage-ai-block .animate-aiProcessing {
+  animation: none;
+}
+
+.homepage-cybersecurity-block .animate-spin {
+  animation: none !important;
+}
+
+.homepage-cybersecurity-block .animate-pulse {
+  animation: none !important;
+}
+
+.homepage-cybersecurity-block .animate-ping {
+  animation: none !important;
+}
+
+.homepage-cybersecurity-block .animate-bounce {
+  animation: none !important;
+}
+
+.homepage-cybersecurity-block .animate-securityScan {
+  animation: none;
+}
+
+.homepage-cybersecurity-block .animate-threatDetect {
+  animation: none;
+}
+
+.homepage-cybersecurity-block .animate-firewallGrid {
+  animation: none;
+}
+
+.homepage-cybersecurity-block .animate-dataFlow {
+  animation: none;
+}
+
 /* Improved transitions */
 button, a, .hover-scale {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -142,5 +446,114 @@ button, a, .hover-scale {
 
 button:hover, a:hover, .hover-scale:hover {
   transform: translateY(-2px);
+}
+
+/* Background overlay animations */
+.ai-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(42, 42, 114, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 60% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 50%);
+  animation: none;
+  pointer-events: none;
+}
+
+.cyber-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(251, 146, 60, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(234, 179, 8, 0.1) 0%, transparent 50%);
+  animation: none;
+  pointer-events: none;
+}
+
+/* Performance optimizations for animations */
+.animate-matrixRain,
+.animate-neuralPulse,
+.animate-dataFlow,
+.animate-securityScan,
+.animate-threatDetect,
+.animate-binaryCode,
+.animate-firewallGrid,
+.animate-quantumEffect {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Smooth animation performance */
+* {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Ensure full coverage of container boxes */
+.ai-background-overlay,
+.cyber-background-overlay {
+  width: 100%;
+  height: 100%;
+}
+
+/* Additional Matrix-like effects */
+@keyframes glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+.animate-glitch {
+  animation: glitch 0.3s infinite;
+}
+
+.animate-codeFlow {
+  animation: none;
+}
+
+.animate-virusAlert {
+  animation: none;
+}
+
+/* Enhanced path animations for SVGs - DISABLED */
+svg path {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  animation: none;
+}
+
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.3;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0.3;
+  }
 }
 

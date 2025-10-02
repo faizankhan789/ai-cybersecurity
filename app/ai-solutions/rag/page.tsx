@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -151,115 +151,123 @@ export default function RAGPage() {
   }
 
   return (
-    <main className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-600 to-teal-600 text-white py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-orbitron mb-6">
-                Retrieval-Augmented Generation (RAG)
-              </h1>
-              <p className="text-xl mb-8 max-w-lg">
-                Bridge the gap between your data and AI. RAG combines the power of information retrieval with generative AI to provide accurate, contextual, and up-to-date responses from your knowledge base.
-              </p>
+      <section className="min-h-screen flex flex-col justify-center relative bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-800 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative z-10 container mx-auto px-4 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white to-emerald-200 bg-clip-text text-transparent">
+                  RAG Systems
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 max-w-2xl leading-relaxed">
+                  Bridge the gap between your data and AI with Retrieval-Augmented Generation that provides accurate, contextual responses from your knowledge base.
+                </p>
+              </div>
               <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" variant="secondary" className="group">
+                <Button asChild size="lg" variant="secondary" className="group bg-white text-black hover:bg-gray-100 text-lg px-8 py-4 h-auto">
                   <Link href="#demo">
                     Try RAG Demo
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
                 <Button
                   asChild
                   size="lg"
                   variant="outline"
-                  className="bg-transparent border-white text-white hover:bg-white/10"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 h-auto"
                 >
-                  <Link href="#pricing">View Pricing</Link>
+                  <Link href="#services">Our Services</Link>
                 </Button>
               </div>
-            </div>
-            <div className="relative h-[400px] hidden lg:block">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full bg-white/10 rounded-lg overflow-hidden backdrop-blur-sm">
-                  {/* Animated data flow visualization */}
-                  <div className="absolute top-0 left-0 w-full h-full">
-                    <Database className="absolute top-1/4 left-1/4 h-8 w-8 text-blue-300 animate-pulse" />
-                    <Search className="absolute top-1/2 left-1/2 h-6 w-6 text-yellow-300 animate-bounce" />
-                    <FileText className="absolute top-3/4 left-3/4 h-6 w-6 text-green-300 animate-pulse" style={{ animationDelay: "0.5s" }} />
-                    <BookOpen className="absolute top-1/3 left-2/3 h-7 w-7 text-purple-300 animate-pulse" style={{ animationDelay: "1s" }} />
-                    {/* Connection lines */}
-                    <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full animate-ping"></div>
-                  </div>
+              <div className="flex items-center space-x-8 text-sm">
+                <div className="text-center">
+                  <div className="text-2xl font-bold">10K+</div>
+                  <div className="text-gray-300">Documents</div>
                 </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">95%</div>
+                  <div className="text-gray-300">Accuracy</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">&lt; 500ms</div>
+                  <div className="text-gray-300">Response Time</div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 lg:opacity-40">
+              <div className="absolute inset-0">
+                <Image
+                  src="/RAG_banner.png"
+                  alt="RAG Systems Banner"
+                  width={800}
+                  height={800}
+                  className="h-full w-auto object-cover object-left"
+                  style={{
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)'
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
+      {/* Services Section */}
+      <section id="services" className="min-h-screen flex flex-col justify-center py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">RAG Use Cases</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">RAG Use Cases & Applications</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover how RAG can transform your organization's approach to information access and knowledge management.
+              Transform your organization's approach to information access and knowledge management with specialized RAG solutions.
             </p>
           </div>
 
-          <Tabs defaultValue="knowledge" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              {useCases.map((useCase) => (
-                <TabsTrigger key={useCase.id} value={useCase.id}>
-                  {useCase.title.split(' ')[0]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {useCases.map((useCase) => (
-              <TabsContent key={useCase.id} value={useCase.id}>
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-emerald-100 rounded-full">{useCase.icon}</div>
-                      <div>
-                        <CardTitle className="text-2xl">{useCase.title}</CardTitle>
-                        <CardDescription className="text-lg">{useCase.description}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <h4 className="font-semibold mb-4">Key Benefits:</h4>
-                    <ul className="space-y-2">
-                      {useCase.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start">
-                          <div className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-600"></div>
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardFooter>
-                    <Button asChild>
-                      <Link href="/contact">Implement {useCase.title}</Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </TabsContent>
+              <Card key={useCase.id} className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-emerald-200">
+                <CardHeader className="text-center pb-4">
+                  <div className="mx-auto w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
+                    {useCase.icon}
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">{useCase.title}</CardTitle>
+                  <CardDescription className="text-gray-600">{useCase.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <h4 className="font-semibold text-gray-900 mb-4">Key Benefits:</h4>
+                  <ul className="space-y-2">
+                    {useCase.benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start text-gray-700">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 mr-3 flex-shrink-0"></div>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild className="w-full">
+                    <Link href="/contact">Implement {useCase.title}</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
             ))}
-          </Tabs>
+          </div>
         </div>
       </section>
 
       {/* Interactive Demo */}
-      <section id="demo" className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-4xl">
+      <section id="demo" className="min-h-screen flex flex-col justify-center py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Interactive RAG Demo</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Interactive RAG Demo</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Upload your documents and ask questions to see how RAG provides accurate answers with source citations.
+              Upload your documents and ask questions to see how RAG provides accurate answers with comprehensive source citations.
             </p>
           </div>
 
@@ -370,7 +378,7 @@ export default function RAGPage() {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-20 px-4 bg-white">
+      <section className="min-h-screen flex flex-col justify-center py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our RAG Technology Stack</h2>
@@ -409,7 +417,7 @@ export default function RAGPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 px-4 bg-gray-50">
+      <section id="pricing" className="min-h-screen flex flex-col justify-center py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">RAG Pricing Plans</h2>
@@ -470,6 +478,6 @@ export default function RAGPage() {
           </Button>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

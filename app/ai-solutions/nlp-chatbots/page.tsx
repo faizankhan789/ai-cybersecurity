@@ -7,29 +7,141 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, Globe, Mic, BarChart4, Stethoscope, ShoppingBag, Send, User, Bot } from "lucide-react"
+import { ArrowRight, Globe, Mic, BarChart4, Stethoscope, ShoppingBag, Send, User, Bot, MessageSquare, Brain, Zap, Search, FileText, Languages, Volume2, Database, Shield } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Slider } from "@/components/ui/slider"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 
-const features = [
+const nlpServices = [
   {
-    title: "Multilingual Support",
-    description: "Our NLP models support over 100 languages with high accuracy translation and understanding.",
-    icon: <Globe className="h-8 w-8 text-indigo-600" />,
+    id: "chatbots",
+    title: "Intelligent Chatbots",
+    description: "Advanced conversational AI powered by large language models and natural language understanding.",
+    icon: <MessageSquare className="h-6 w-6" />,
+    features: [
+      "Multi-turn conversation handling",
+      "Context-aware responses",
+      "Intent recognition & entity extraction",
+      "Fallback & escalation management",
+      "Custom knowledge base integration"
+    ],
+    applications: ["Customer support", "Sales assistance", "FAQ automation", "Lead qualification"]
   },
   {
-    title: "Voice Integration",
-    description: "Convert speech to text and text to speech with natural-sounding voices in multiple languages.",
-    icon: <Mic className="h-8 w-8 text-indigo-600" />,
+    id: "sentiment-analysis",
+    title: "Sentiment Analysis",
+    description: "Real-time emotion detection and sentiment scoring from text, voice, and social media content.",
+    icon: <Brain className="h-6 w-6" />,
+    features: [
+      "Multi-modal sentiment detection",
+      "Emotion classification (joy, anger, fear, etc.)",
+      "Social media monitoring",
+      "Review & feedback analysis",
+      "Brand reputation tracking"
+    ],
+    applications: ["Brand monitoring", "Customer feedback", "Social listening", "Market research"]
   },
   {
-    title: "CRM Automation",
-    description: "Integrate with your CRM to automatically update customer records and track interactions.",
-    icon: <BarChart4 className="h-8 w-8 text-indigo-600" />,
+    id: "text-analytics",
+    title: "Text Analytics & NLU",
+    description: "Extract insights from unstructured text with named entity recognition, topic modeling, and summarization.",
+    icon: <FileText className="h-6 w-6" />,
+    features: [
+      "Named entity recognition (NER)",
+      "Topic modeling & classification",
+      "Document summarization",
+      "Keyword extraction",
+      "Language detection"
+    ],
+    applications: ["Document processing", "Content analysis", "Research automation", "Data mining"]
   },
+  {
+    id: "language-translation",
+    title: "Language Translation",
+    description: "High-quality machine translation supporting 100+ languages with domain-specific models.",
+    icon: <Languages className="h-6 w-6" />,
+    features: [
+      "Neural machine translation",
+      "100+ language support",
+      "Domain adaptation (legal, medical, etc.)",
+      "Real-time translation API",
+      "Quality confidence scoring"
+    ],
+    applications: ["Global communication", "Content localization", "Customer support", "Document translation"]
+  }
+]
+
+const industryApplications = [
+  {
+    id: "customer-service",
+    title: "Customer Service & Support",
+    description: "Automate customer interactions with intelligent virtual assistants.",
+    icon: <Stethoscope className="h-8 w-8 text-indigo-600" />,
+    solutions: [
+      "24/7 automated customer support",
+      "Multi-channel integration (web, mobile, social)",
+      "Ticket classification & routing",
+      "Knowledge base query automation",
+      "Escalation management"
+    ],
+    metrics: { resolution_rate: "85%", response_time: "< 2s", cost_reduction: "60%" }
+  },
+  {
+    id: "ecommerce",
+    title: "E-commerce & Retail",
+    description: "Enhance shopping experiences with personalized AI assistants.",
+    icon: <ShoppingBag className="h-8 w-8 text-indigo-600" />,
+    solutions: [
+      "Product recommendation engine",
+      "Visual search & discovery",
+      "Order tracking & support",
+      "Personalized shopping assistance",
+      "Inventory & pricing queries"
+    ],
+    metrics: { conversion_rate: "+35%", engagement: "+50%", cost_reduction: "45%" }
+  },
+  {
+    id: "healthcare",
+    title: "Healthcare & Medical",
+    description: "Support healthcare providers with AI-powered communication tools.",
+    icon: <Stethoscope className="h-8 w-8 text-indigo-600" />,
+    solutions: [
+      "Patient intake automation",
+      "Symptom checker & triage",
+      "Appointment scheduling",
+      "Medical record summarization",
+      "HIPAA-compliant interactions"
+    ],
+    metrics: { efficiency: "+40%", accuracy: "92%", cost_reduction: "35%" }
+  },
+  {
+    id: "finance",
+    title: "Banking & Finance",
+    description: "Secure financial services with intelligent automation.",
+    icon: <Shield className="h-8 w-8 text-indigo-600" />,
+    solutions: [
+      "Account management assistance",
+      "Fraud detection & alerts",
+      "Loan application processing",
+      "Investment advisory support",
+      "Regulatory compliance monitoring"
+    ],
+    metrics: { accuracy: "96%", processing_time: "-70%", cost_reduction: "50%" }
+  }
+]
+
+const techStack = [
+  { name: "GPT-4 & Claude", category: "LLM" },
+  { name: "BERT & RoBERTa", category: "NLU" },
+  { name: "spaCy & NLTK", category: "Library" },
+  { name: "Hugging Face", category: "Platform" },
+  { name: "OpenAI API", category: "Service" },
+  { name: "AWS Comprehend", category: "Cloud" },
+  { name: "Google Dialogflow", category: "Platform" },
+  { name: "Rasa", category: "Framework" }
 ]
 
 const industries = [
@@ -142,80 +254,112 @@ export default function NLPChatbotsPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#6A1B9A] to-[#4A148C] text-white py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-orbitron mb-6">Conversations Powered by AI</h1>
-              <p className="text-xl mb-8 max-w-lg">
-                Transform customer interactions with intelligent chatbots, sentiment analysis, and natural language
-                processing.
-              </p>
+      <section className="min-h-screen flex flex-col justify-center relative bg-gradient-to-br from-[#6A1B9A] via-[#8B5CF6] to-[#4A148C] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative z-10 container mx-auto px-4 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+                  NLP & Chatbot Solutions
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 max-w-2xl leading-relaxed">
+                  Transform customer interactions with intelligent conversational AI, sentiment analysis, and advanced natural language processing.
+                </p>
+              </div>
               <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" variant="secondary" className="group">
+                <Button asChild size="lg" variant="secondary" className="group bg-white text-black hover:bg-gray-100 text-lg px-8 py-4 h-auto">
                   <Link href="#demo">
-                    Try Interactive Chatbot
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    Try Interactive Demo
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
                 <Button
                   asChild
                   size="lg"
                   variant="outline"
-                  className="bg-transparent border-white text-white hover:bg-white/10"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 h-auto"
                 >
-                  <Link href="#features">Explore Features</Link>
+                  <Link href="#services">Our Services</Link>
                 </Button>
               </div>
-            </div>
-            <div className="relative h-[400px] hidden lg:block">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full relative">
-                  {/* Chat bubbles animation */}
-                  <div
-                    className="absolute top-1/4 left-1/4 bg-white text-purple-900 p-4 rounded-lg rounded-bl-none shadow-lg transform -translate-x-1/2 animate-bounce"
-                    style={{ animationDuration: "3s" }}
-                  >
-                    <p className="text-sm">How can I help you today?</p>
-                  </div>
-                  <div
-                    className="absolute top-1/2 right-1/4 bg-purple-200 text-purple-900 p-4 rounded-lg rounded-br-none shadow-lg transform translate-x-1/2 animate-bounce"
-                    style={{ animationDuration: "4s", animationDelay: "1s" }}
-                  >
-                    <p className="text-sm">I need information about your services.</p>
-                  </div>
-                  <div
-                    className="absolute bottom-1/4 left-1/3 bg-white text-purple-900 p-4 rounded-lg rounded-bl-none shadow-lg transform -translate-x-1/2 animate-bounce"
-                    style={{ animationDuration: "3.5s", animationDelay: "2s" }}
-                  >
-                    <p className="text-sm">Here's what we offer...</p>
-                  </div>
+              <div className="flex items-center space-x-8 text-sm">
+                <div className="text-center">
+                  <div className="text-2xl font-bold">100+</div>
+                  <div className="text-gray-300">Languages</div>
                 </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">98%</div>
+                  <div className="text-gray-300">Accuracy</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">&lt; 100ms</div>
+                  <div className="text-gray-300">Response Time</div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 lg:opacity-40">
+              <div className="absolute inset-0">
+                <Image
+                  src="/NLP_banner.png"
+                  alt="NLP & Chatbots Banner"
+                  width={800}
+                  height={800}
+                  className="h-full w-auto object-cover object-left"
+                  style={{
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)'
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
+      {/* Services Section */}
+      <section id="services" className="min-h-screen flex flex-col justify-center py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Key Features</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">NLP & Chatbot Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our NLP and chatbot solutions come with powerful features to enhance customer interactions.
+              Comprehensive natural language processing and conversational AI solutions for every business need.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="mb-4 p-3 bg-indigo-100 rounded-full w-fit">{feature.icon}</div>
-                  <CardTitle>{feature.title}</CardTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {nlpServices.map((service) => (
+              <Card key={service.id} className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-indigo-200">
+                <CardHeader className="text-center pb-4">
+                  <div className="mx-auto w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
+                    {service.icon}
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
+                  <CardDescription className="text-gray-600">{service.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Key Features:</h4>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 mr-2 flex-shrink-0"></div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Applications:</h4>
+                    <div className="flex flex-wrap gap-1">
+                      {service.applications.map((app, idx) => (
+                        <Badge key={idx} variant="secondary" className="text-xs">{app}</Badge>
+                      ))}
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -223,13 +367,75 @@ export default function NLPChatbotsPage() {
         </div>
       </section>
 
-      {/* Interactive Demo */}
-      <section id="demo" className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-6xl">
+      {/* Industry Applications Section */}
+      <section className="min-h-screen flex flex-col justify-center py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Interactive Chatbot Demo</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Industry Applications</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Customize the chatbot's personality and see how it responds to your queries.
+              Transform customer interactions across industries with our specialized NLP and chatbot solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {industryApplications.map((industry) => (
+              <Card key={industry.id} className="group hover:shadow-2xl transition-all duration-300 bg-white">
+                <CardHeader className="pb-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 bg-indigo-100 rounded-full group-hover:bg-indigo-200 transition-colors">
+                      {industry.icon}
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl text-gray-900">{industry.title}</CardTitle>
+                      <CardDescription className="text-lg text-gray-600">{industry.description}</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-4">Our Solutions:</h4>
+                    <ul className="space-y-2">
+                      {industry.solutions.map((solution, idx) => (
+                        <li key={idx} className="flex items-start text-gray-700">
+                          <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2 mr-3 flex-shrink-0"></div>
+                          {solution}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-indigo-600">{industry.metrics.resolution_rate || industry.metrics.conversion_rate || industry.metrics.efficiency || industry.metrics.accuracy}</div>
+                      <div className="text-sm text-gray-500">{industry.metrics.resolution_rate ? 'Resolution Rate' : industry.metrics.conversion_rate ? 'Conversion Rate' : industry.metrics.efficiency ? 'Efficiency' : 'Accuracy'}</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">{industry.metrics.response_time || industry.metrics.engagement || industry.metrics.accuracy || industry.metrics.processing_time}</div>
+                      <div className="text-sm text-gray-500">{industry.metrics.response_time ? 'Response Time' : industry.metrics.engagement ? 'Engagement' : industry.metrics.accuracy ? 'Accuracy' : 'Processing Time'}</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-orange-600">-{industry.metrics.cost_reduction}</div>
+                      <div className="text-sm text-gray-500">Cost Reduction</div>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild className="w-full">
+                    <Link href="/contact">Discuss {industry.title.split(" ")[0]} Solutions</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Demo Section */}
+      <section id="demo" className="min-h-screen flex flex-col justify-center py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Interactive Chatbot Demo</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Experience our conversational AI technology with customizable personality and response settings.
             </p>
           </div>
 
@@ -237,7 +443,7 @@ export default function NLPChatbotsPage() {
             <div className="lg:col-span-2">
               <Card className="h-full">
                 <CardHeader>
-                  <CardTitle>Chat with our AI</CardTitle>
+                  <CardTitle className="text-2xl">Chat with our AI Assistant</CardTitle>
                   <CardDescription>Type a message to start the conversation</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -260,7 +466,7 @@ export default function NLPChatbotsPage() {
                             )}
                           </div>
                           <div
-                            className={`p-3 rounded-lg ${message.role === "user" ? "bg-indigo-600 text-white" : "bg-white border"}`}
+                            className={`p-3 rounded-lg ${message.role === "user" ? "bg-indigo-600 text-white" : "bg-white border shadow-sm"}`}
                           >
                             {message.content}
                           </div>
@@ -273,7 +479,7 @@ export default function NLPChatbotsPage() {
                           <div className="flex-shrink-0 h-8 w-8 rounded-full bg-indigo-600 mr-2 flex items-center justify-center">
                             <Bot className="h-4 w-4 text-white" />
                           </div>
-                          <div className="p-3 rounded-lg bg-white border">
+                          <div className="p-3 rounded-lg bg-white border shadow-sm">
                             <div className="flex space-x-1">
                               <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce"></div>
                               <div
@@ -297,7 +503,7 @@ export default function NLPChatbotsPage() {
                       placeholder="Type your message..."
                       className="flex-grow"
                     />
-                    <Button type="submit" size="icon">
+                    <Button type="submit" size="icon" className="bg-indigo-600 hover:bg-indigo-700">
                       <Send className="h-4 w-4" />
                     </Button>
                   </form>
@@ -305,7 +511,7 @@ export default function NLPChatbotsPage() {
               </Card>
             </div>
 
-            <div>
+            <div className="space-y-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Customize Chatbot</CardTitle>
@@ -365,91 +571,152 @@ export default function NLPChatbotsPage() {
                   </div>
                 </CardContent>
               </Card>
+
+              <Card className="bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-200">
+                <CardHeader>
+                  <CardTitle className="text-lg">Demo Features</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <MessageSquare className="h-4 w-4 text-indigo-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <div>Multi-turn conversations</div>
+                    </li>
+                    <li className="flex items-start">
+                      <Brain className="h-4 w-4 text-indigo-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <div>Context-aware responses</div>
+                    </li>
+                    <li className="flex items-start">
+                      <Zap className="h-4 w-4 text-indigo-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <div>Customizable personality</div>
+                    </li>
+                    <li className="flex items-start">
+                      <Volume2 className="h-4 w-4 text-indigo-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <div>Natural language understanding</div>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Industry Applications */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
+      {/* Technology Stack Section */}
+      <section className="min-h-screen flex flex-col justify-center py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Industry Applications</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Our Technology Stack</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover how our NLP and chatbot solutions can transform various industries.
+              Built with state-of-the-art NLP frameworks and large language models for superior performance.
             </p>
           </div>
 
-          <Tabs defaultValue="healthcare" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              {industries.map((industry) => (
-                <TabsTrigger key={industry.id} value={industry.id}>
-                  {industry.title}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <Card className="border-2 border-indigo-200">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-gray-900 flex items-center">
+                    <Brain className="h-8 w-8 text-indigo-600 mr-3" />
+                    Large Language Models
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 gap-4">
+                    {techStack.filter(tech => ['LLM', 'Service'].includes(tech.category)).map((tech, index) => (
+                      <div key={index} className="bg-gray-50 p-3 rounded-lg text-center">
+                        <div className="font-medium text-gray-900">{tech.name}</div>
+                        <div className="text-sm text-gray-500">{tech.category}</div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
 
-            {industries.map((industry) => (
-              <TabsContent key={industry.id} value={industry.id}>
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-indigo-100 rounded-full">{industry.icon}</div>
-                      <div>
-                        <CardTitle className="text-2xl">{industry.title}</CardTitle>
-                        <CardDescription className="text-lg">{industry.description}</CardDescription>
+              <Card className="border-2 border-green-200">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-gray-900 flex items-center">
+                    <Database className="h-8 w-8 text-green-600 mr-3" />
+                    NLP Libraries & Frameworks
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 gap-4">
+                    {techStack.filter(tech => ['NLU', 'Library', 'Framework'].includes(tech.category)).map((tech, index) => (
+                      <div key={index} className="bg-gray-50 p-3 rounded-lg text-center">
+                        <div className="font-medium text-gray-900">{tech.name}</div>
+                        <div className="text-sm text-gray-500">{tech.category}</div>
                       </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div>
-                        <h4 className="font-semibold mb-4">Key Benefits:</h4>
-                        <ul className="space-y-2">
-                          {industry.benefits.map((benefit, index) => (
-                            <li key={index} className="flex items-start">
-                              <div className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-indigo-600"></div>
-                              <span>{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <Image
-                          src={industry.image || "/placeholder.svg"}
-                          alt={industry.title}
-                          width={500}
-                          height={300}
-                          className="w-full h-auto rounded-lg"
-                        />
-                      </div>
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button asChild>
-                      <Link href="/contact">Discuss Your {industry.title} Project</Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </div>
-      </section>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#6A1B9A] to-[#4A148C] text-white">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Chatbot?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Create a customized chatbot for your business in just a few minutes.
-          </p>
-          <Button asChild size="lg" variant="secondary" className="group">
-            <Link href="/contact">
-              Build Your Chatbot in 5 Minutes
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
+            <div className="space-y-8">
+              <Card className="border-2 border-purple-200">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-gray-900 flex items-center">
+                    <Zap className="h-8 w-8 text-purple-600 mr-3" />
+                    Cloud Platforms
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {techStack.filter(tech => ['Cloud', 'Platform'].includes(tech.category)).map((tech, index) => (
+                      <div key={index} className="bg-gray-50 p-3 rounded-lg">
+                        <div className="font-medium text-gray-900">{tech.name}</div>
+                        <div className="text-sm text-gray-500">Enterprise-grade NLP platform</div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-300">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-gray-900">Performance Metrics</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-indigo-600 mb-2">98%</div>
+                      <div className="text-gray-600">Intent Accuracy</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-600 mb-2">&lt; 100ms</div>
+                      <div className="text-gray-600">Response Time</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
+                      <div className="text-gray-600">Languages</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-purple-600 mb-2">99.9%</div>
+                      <div className="text-gray-600">Uptime SLA</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-4">Ready to Deploy Your Chatbot?</h3>
+              <p className="text-lg mb-6 opacity-90">
+                Get started with our NLP and chatbot solutions in minutes with pre-built templates and easy integration.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button asChild size="lg" variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100">
+                  <Link href="/contact">Start Your Project</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  <Link href="#demo">Try Demo</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

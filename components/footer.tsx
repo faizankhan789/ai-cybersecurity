@@ -9,7 +9,7 @@ import { Twitter, Linkedin, Github, Mail, MapPin, Phone } from "lucide-react"
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto py-12 px-4">
+      <div className="container mx-auto py-3 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
@@ -101,19 +101,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+        <div className="border-t border-gray-800 mt-3 pt-2 text-sm text-center">
           <p>© {new Date().getFullYear()} AI & Cybersecurity Solutions. All rights reserved.</p>
-          <div className="mt-2 space-x-4">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-of-service" className="hover:text-white transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="/compliance" className="hover:text-white transition-colors">
-              Compliance
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

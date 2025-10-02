@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -33,6 +33,7 @@ const navItems = [
       { label: "Network & Infrastructure Testing", href: "/cybersecurity-services/network-security" },
       { label: "Vulnerability Assessment", href: "/cybersecurity-services/threat-intelligence" },
       { label: "Compliance & Configuration Review", href: "/cybersecurity-services/compliance" },
+      { label: "Incident Response", href: "/cybersecurity-services/incident-response" },
     ],
   },
   {
@@ -45,6 +46,29 @@ const navItems = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null)
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = (index: number) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+    }
+    setHoveredItem(index)
+  }
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredItem(null)
+    }, 150) // Small delay to allow moving to submenu
+  }
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current)
+      }
+    }
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -59,44 +83,58 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navItems.map((item, index) =>
-            item.submenu ? (
-              <DropdownMenu key={index}>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-1">
-                    {item.icon}
-                    {item.label}
-                    <ChevronDown className="h-4 w-4 ml-1" />
+        <div className="flex flex-1 items-center justify-end space-x-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            {navItems.map((item, index) =>
+              item.submenu ? (
+                <div
+                  key={index}
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Button 
+                    variant="ghost" 
+                    className="flex items-center gap-1 transition-colors hover:text-foreground/80 text-foreground/60"
+                    asChild
+                  >
+                    <Link href={item.href}>
+                      {item.icon}
+                      {item.label}
+                      <ChevronDown className="h-4 w-4 ml-1" />
+                    </Link>
                   </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
-                  {item.submenu.map((subItem, subIndex) => (
-                    <DropdownMenuItem key={subIndex} asChild>
-                      <Link href={subItem.href} prefetch={true}>{subItem.label}</Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <Link
-                key={index}
-                href={item.href}
-                prefetch={true}
-                className="flex items-center transition-colors hover:text-foreground/80 text-foreground/60"
-              >
-                {item.icon}
-                {item.label}
-              </Link>
-            ),
-          )}
-        </nav>
+                  {hoveredItem === index && (
+                    <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                      <div className="py-2">
+                        {item.submenu.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={index}
+                  href={item.href}
+                  prefetch={true}
+                  className="flex items-center transition-colors hover:text-foreground/80 text-foreground/60"
+                >
+                  {item.icon}
+                  {item.label}
+                </Link>
+              ),
+            )}
+          </nav>
 
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <Button asChild variant="ghost" className="hidden md:flex">
-            <Link href="/contact">Contact</Link>
-          </Button>
           <Button asChild className="hidden md:flex">
             <Link href="/contact">Get Started</Link>
           </Button>
@@ -141,12 +179,7 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <div className="pt-4 border-t flex flex-col gap-2">
-              <Button asChild variant="outline" className="w-full">
-                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                  Contact
-                </Link>
-              </Button>
+            <div className="pt-4 border-t">
               <Button asChild className="w-full">
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                   Get Started

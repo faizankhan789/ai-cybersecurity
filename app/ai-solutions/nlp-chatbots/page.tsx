@@ -254,11 +254,12 @@ export default function NLPChatbotsPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center relative bg-gradient-to-br from-[#6A1B9A] via-[#8B5CF6] to-[#4A148C] text-white overflow-hidden">
+      <section className="min-h-screen flex flex-col justify-center relative bg-gradient-to-br from-[#6A1B9A] via-[#8B5CF6] to-[#4A148C] gradient-animate text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
+        <div className="shimmer-effect absolute inset-0 opacity-30"></div>
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            <div className="space-y-8">
+            <div className="space-y-8 hero-animate-in">
               <div className="space-y-6">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
                   NLP & Chatbot Solutions
@@ -298,7 +299,7 @@ export default function NLPChatbotsPage() {
                 </div>
               </div>
             </div>
-            <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 lg:opacity-40">
+            <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 lg:opacity-40 hero-float">
               <div className="absolute inset-0">
                 <Image
                   src="/NLP_banner.png"

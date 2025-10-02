@@ -483,11 +483,12 @@ export default function MachineLearningPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="h-[90vh] flex items-center bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#f093fb] text-white relative overflow-hidden">
+      <section className="h-[90vh] flex items-center bg-gradient-to-br gradient-animate from-[#667eea] via-[#764ba2] to-[#f093fb] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
-        
+        <div className="shimmer-effect absolute inset-0 opacity-30"></div>
+
         {/* Background Image - Full Width */}
-        <div className="absolute inset-0 flex justify-end">
+        <div className="absolute inset-0 flex justify-end hero-float">
           <div className="w-1/2 h-full relative">
             <Image
               src="/Ml_banner.png"
@@ -502,10 +503,10 @@ export default function MachineLearningPage() {
             />
           </div>
         </div>
-        
+
         <div className="container mx-auto max-w-7xl relative z-10 px-4 py-2">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center h-[75vh]">
-            <div className="space-y-4 lg:space-y-5">
+            <div className="space-y-4 lg:space-y-5 hero-animate-in">
               <div>
                 <Badge className="bg-white/20 text-white border-white/30 mb-3 text-xs">
                   Enterprise-Grade ML Solutions

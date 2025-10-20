@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Brain, Eye, MessageSquare, Lightbulb, ChevronRight, Sparkles, Database, Cpu } from "lucide-react"
+import { ArrowRight, Brain, Eye, MessageSquare, Lightbulb, ChevronRight, Sparkles, Database, Cpu, DollarSign, Activity } from "lucide-react"
 import TechStackShowcase from "@/components/tech-stack-showcase"
 import PageTransition from "@/components/page-transition"
 
@@ -259,7 +259,8 @@ export default function AISolutionsPage() {
             <Card className="overflow-hidden">
               <div className="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 relative">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Badge className="bg-white text-blue-600">FINANCE</Badge>
+                  <DollarSign className="h-24 w-24 text-white/20 absolute" />
+                  <Badge className="bg-white text-blue-600 relative z-10">FINANCE</Badge>
                 </div>
               </div>
               <CardHeader>
@@ -283,7 +284,8 @@ export default function AISolutionsPage() {
             <Card className="overflow-hidden">
               <div className="h-48 bg-gradient-to-r from-indigo-500 to-purple-500 relative">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Badge className="bg-white text-indigo-600">HEALTHCARE</Badge>
+                  <Activity className="h-24 w-24 text-white/20 absolute" />
+                  <Badge className="bg-white text-indigo-600 relative z-10">HEALTHCARE</Badge>
                 </div>
               </div>
               <CardHeader>

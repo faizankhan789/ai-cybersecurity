@@ -6,20 +6,20 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const techStacks = {
   frameworks: [
-    { name: "TensorFlow", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "PyTorch", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "Scikit-learn", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "Keras", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "OpenCV", logo: "/placeholder.svg?height=60&width=120" },
+    { name: "TensorFlow", logo: "/tensorflow.png" },
+    { name: "PyTorch", logo: "/pytorch.png" },
+    { name: "Scikit-learn", logo: "/scikit-learn.png" },
+    { name: "Keras", logo: "/keras.png" },
+    { name: "OpenCV", logo: "/opencv.png" },
   ],
   cloud: [
-    { name: "AWS SageMaker", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "Google AI Platform", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "Azure ML", logo: "/placeholder.svg?height=60&width=120" },
+    { name: "AWS", logo: "/aws.png" },
+    { name: "Google Cloud", logo: "/placeholder.svg?height=60&width=120" },
+    { name: "Azure", logo: "/azure.png" },
     { name: "IBM Watson", logo: "/placeholder.svg?height=60&width=120" },
   ],
   tools: [
-    { name: "Jupyter", logo: "/placeholder.svg?height=60&width=120" },
+    { name: "Jupyter", logo: "/jupyter.png" },
     { name: "MLflow", logo: "/placeholder.svg?height=60&width=120" },
     { name: "Kubeflow", logo: "/placeholder.svg?height=60&width=120" },
     { name: "DVC", logo: "/placeholder.svg?height=60&width=120" },
